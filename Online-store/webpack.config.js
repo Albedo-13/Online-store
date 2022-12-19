@@ -3,21 +3,17 @@ const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const EslingPlugin = require('eslint-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // optional?
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 // читай readme.txt в корне папки src, настрой scss транслятор
 
-// TODO: при компиляции dist папки через npm run build 
-// должна сохраняться многостраничная структура папок
+// TODO: настроить импорты-экспорты файлов из папки модулей
 
 // TODO: настроить ts to js транслятор
 // https://github.com/Jeneko/News-api-migration-walkthrough/blob/main/README.md
 
-// TODO: подтягивать папку ассетов
-// https://github.com/webpack-contrib/css-loader#recommend
-
-// TODO: Разобраться почему в консоли два раза
-// вызывается /main/index.js
+// index.js сам вызывается в html без подключения
 
 const baseConfig = {
   entry: {
@@ -41,24 +37,31 @@ const baseConfig = {
     extensions: ['.ts', '.js'],
   },
   output: {
-    filename: '[name]/js/index.js',
+    filename: 'pages/[name]/js/index.js',
     path: path.resolve(__dirname, `./dist/`),
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './src/pages/main/index.html'),
-      filename: './main/index.html',
+      filename: './pages/main/index.html',
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './src/pages/cart/index.html'),
-      filename: './cart/index.html',
+      filename: './pages/cart/index.html',
     }),
     new CleanWebpackPlugin(),
     new EslingPlugin({
       extensions: 'ts'
     }),
     new MiniCssExtractPlugin({
-      filename: "./[name]/css/styles.css",
+      filename: "./pages/[name]/css/styles.css",
+    }),
+    // Очень тяжелый плагин, альтернативы?
+    // Переписать CopyPlugin на MiniCssExtractPlugin
+    new CopyPlugin({
+      patterns: [
+        { from: "./src/assets/", to: "./assets/" },
+      ],
     }),
   ],
 };
