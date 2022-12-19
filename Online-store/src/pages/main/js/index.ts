@@ -1,9 +1,9 @@
 import '../css/styles.css';
 import './modules/module';
 
-function consoleOutput(text) {
+function consoleOutput(text: string) {
   console.log(text);
 }
 
-let a = 'Hey from main/index.js';
+const a = 'Hey from main/index.js';
 consoleOutput(a);

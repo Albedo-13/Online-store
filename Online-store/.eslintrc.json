@@ -18,8 +18,8 @@
     "rules": {
         "no-debugger": "off",
         "no-console": 0,
-        "indent": [2, "space"],
-        "no-tabs": 0,
+        "indent": ["error", 2],
+        // "no-tabs": 0,
         "class-methods-use-this": "off",
         "@typescript-eslint/no-explicit-any": 2,
         "prettier/prettier": [

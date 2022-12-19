@@ -51,24 +51,20 @@ const baseConfig = {
     }),
     new CleanWebpackPlugin(),
     new EslingPlugin({
-      extensions: 'ts'
+      extensions: 'ts',
     }),
     new MiniCssExtractPlugin({
-      filename: "./pages/[name]/css/styles.css",
+      filename: './pages/[name]/css/styles.css',
     }),
     // Очень тяжелый плагин, альтернативы?
     // Переписать CopyPlugin на MiniCssExtractPlugin
     new CopyPlugin({
-      patterns: [
-        { from: "./src/assets/", to: "./assets/" },
-      ],
+      patterns: [{ from: './src/assets/', to: './assets/' }],
     }),
   ],
 };
 
-module.exports = ({
-  mode
-}) => {
+module.exports = ({ mode }) => {
   const isProductionMode = mode === 'prod';
   const envConfig = isProductionMode ? require('./webpack.prod.config') : require('./webpack.dev.config');
 
