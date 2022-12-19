@@ -1,4 +1,9 @@
 import '../css/styles.css';
 import './modules/module';
 
-console.log("Hey from main/index.js");
+function consoleOutput(text) {
+  console.log(text);
+}
+
+let a = 'Hey from main/index.js';
+consoleOutput(a);

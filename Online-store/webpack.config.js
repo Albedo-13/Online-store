@@ -8,12 +8,12 @@ const CopyPlugin = require("copy-webpack-plugin");
 
 // читай readme.txt в корне папки src, настрой scss транслятор
 
-// TODO: настроить импорты-экспорты файлов из папки модулей
+// TODO: prettier + eslint
 
 // TODO: настроить ts to js транслятор
 // https://github.com/Jeneko/News-api-migration-walkthrough/blob/main/README.md
 
-// index.js сам вызывается в html без подключения
+// index.js сам вызывается в html без подключения (хз почему :) )
 
 const baseConfig = {
   entry: {
