@@ -8,17 +8,12 @@ const CopyPlugin = require("copy-webpack-plugin");
 
 // читай readme.txt в корне папки src, настрой scss транслятор
 
-// TODO: prettier + eslint
-
-// TODO: настроить ts to js транслятор
-// https://github.com/Jeneko/News-api-migration-walkthrough/blob/main/README.md
-
 // index.js сам вызывается в html без подключения (хз почему :) )
 
 const baseConfig = {
   entry: {
-    main: path.resolve(__dirname, './src/pages/main/js/index'),
-    cart: path.resolve(__dirname, './src/pages/cart/js/index'),
+    main: path.resolve(__dirname, './src/pages/main/ts/index'),
+    cart: path.resolve(__dirname, './src/pages/cart/ts/index'),
   },
   mode: 'development',
   module: {
