@@ -1,0 +1,33 @@
+.filters {
+  position: absolute;
+  width: 300px;
+  background-color: rgb(183, 214, 255);
+
+  &-buttons {
+    min-height: 40px;
+    background-color: rgb(255, 177, 32);
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 15px;
+  }
+
+  &-sort {
+    min-height: 300px;
+
+    &__header {
+      text-align: center;
+    }
+  }
+}
+
+.filter-list {
+  height: 100px;
+  overflow: auto;
+  border: 1px solid black;
+
+  &-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 15px;
+  }
+}

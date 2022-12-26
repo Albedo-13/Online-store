@@ -11,13 +11,176 @@
 </head>
 
 <body>
-  <h1 class="h1">main page</h1>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium ipsum unde vitae mollitia minus quaerat tenetur
-    laborum quos consequuntur deleniti! Repudiandae eveniet numquam pariatur, similique et minima fugiat blanditiis
-    aspernatur?</p>
+  <header class="header">
+    <div class="container">
+      <div class="header-wrapper">
+        <a href="../../pages/main/index.html" class="header__logo">
+          <img src="../../assets/img/society-reason.jpg" alt="logo"></a>
+        <div class="header__total">
+          Cart total:
+          <span>$ 0</span>
+        </div>
+        <a href="../cart/index.html" class="header__cart">
+          <img src="../../assets/icons/cart.svg" alt="cart">
+          <span>0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      <section class="filters">
+        <div class="filters-wrapper">
+          <div class="filters-buttons">
+            <button class="filters-buttons__reset">сброс фильтров</button>
+            <button class="filters-buttons__copy">копировать</button>
+          </div>
+          <div class="filters-sort">
+            <h3 class="filters-sort__header">Категории</h3>
+            <div class="filter-list" id="filter-category">
+              <div class="filter-list-item">
+                <input class="filter-list-item__checkbox" type="checkbox">
+                <label>smartphones</label>
+                <span>(0/0)</span>
+              </div>
+              <div class="filter-list-item">
+                <input class="filter-list-item__checkbox" type="checkbox">
+                <label>smartphones</label>
+                <span>(0/0)</span>
+              </div>
+              <div class="filter-list-item">
+                <input class="filter-list-item__checkbox" type="checkbox">
+                <label>smartphones</label>
+                <span>(0/0)</span>
+              </div>
+              <div class="filter-list-item">
+                <input class="filter-list-item__checkbox" type="checkbox">
+                <label>smartphones</label>
+                <span>(0/0)</span>
+              </div>
+              <div class="filter-list-item">
+                <input class="filter-list-item__checkbox" type="checkbox">
+                <label>smartphones</label>
+                <span>(0/0)</span>
+              </div>
+            </div>
+            <h3 class="filters-sort__header">Бренд</h3>
+            <div class="filter-list" id="filter-brand">
+              <div class="filter-list-item">
+                <input class="filter-list-item__checkbox" type="checkbox">
+                <label>самсунг</label>
+                <span>(0/0)</span>
+              </div>
+              <div class="filter-list-item">
+                <input class="filter-list-item__checkbox" type="checkbox">
+                <label>эпл</label>
+                <span>(0/0)</span>
+              </div>
+              <div class="filter-list-item">
+                <input class="filter-list-item__checkbox" type="checkbox">
+                <label>smartphones</label>
+                <span>(0/0)</span>
+              </div>
+              <div class="filter-list-item">
+                <input class="filter-list-item__checkbox" type="checkbox">
+                <label>smartphones</label>
+                <span>(0/0)</span>
+              </div>
+              <div class="filter-list-item">
+                <input class="filter-list-item__checkbox" type="checkbox">
+                <label>smartphones</label>
+                <span>(0/0)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="products">
+        <div class="products-wrapper">
+          <div class="products-sort">
+            <select class="products__droplist" name="" id="">
+              <option value="">сортировка по:</option>
+              <option value="">сортировка по цене (возр)</option>
+              <option value="">сортировка по цене (убыв)</option>
+            </select>
+            <div class="products__total-find">
+              результатов:
+              <span>0</span>
+            </div>
+            <input type="text" class="products__search" placeholder="искать продукт">
+          </div>
+          <div class="products-list">
+            <div class="products-item">
+              <div class="products-item__name">iPhone 9</div>
+              <div class="products-item__image">
+                <img src="../../assets/img/society-reason.jpg" alt="product image">
+              </div>
+              <div class="products-item__category">Category: smartphones</div>
+              <div class="products-item__brand">Brand: Apple</div>
+              <div class="products-item__price">Price: €549.00</div>
+              <div class="products-item__discount">Discount: 12.96%</div>
+              <div class="products-item__rating">Rating: 4.69</div>
+              <div class="products-item__stock">Stock: 94</div>
+              <button class="products-item__add">add to cart</button>
+              <button class="products-item__about">about</button>
+            </div>
+            <div class="products-item">
+              <div class="products-item__name">iPhone 9</div>
+              <div class="products-item__image">
+                <img src="../../assets/img/society-reason.jpg" alt="product image">
+              </div>
+              <div class="products-item__category">Category: smartphones</div>
+              <div class="products-item__brand">Brand: Apple</div>
+              <div class="products-item__price">Price: €549.00</div>
+              <div class="products-item__discount">Discount: 12.96%</div>
+              <div class="products-item__rating">Rating: 4.69</div>
+              <div class="products-item__stock">Stock: 94</div>
+              <button class="products-item__add">add to cart</button>
+              <button class="products-item__about">about</button>
+            </div>
+            <div class="products-item">
+              <div class="products-item__name">iPhone 9</div>
+              <div class="products-item__image">
+                <img src="../../assets/img/society-reason.jpg" alt="product image">
+              </div>
+              <div class="products-item__category">Category: smartphones</div>
+              <div class="products-item__brand">Brand: Apple</div>
+              <div class="products-item__price">Price: €549.00</div>
+              <div class="products-item__discount">Discount: 12.96%</div>
+              <div class="products-item__rating">Rating: 4.69</div>
+              <div class="products-item__stock">Stock: 94</div>
+              <button class="products-item__add">add to cart</button>
+              <button class="products-item__about">about</button>
+            </div>
+            <div class="products-item">
+              <div class="products-item__name">iPhone 9</div>
+              <div class="products-item__image">
+                <img src="../../assets/img/society-reason.jpg" alt="product image">
+              </div>
+              <div class="products-item__category">Category: smartphones</div>
+              <div class="products-item__brand">Brand: Apple</div>
+              <div class="products-item__price">Price: €549.00</div>
+              <div class="products-item__discount">Discount: 12.96%</div>
+              <div class="products-item__rating">Rating: 4.69</div>
+              <div class="products-item__stock">Stock: 94</div>
+              <button class="products-item__add">add to cart</button>
+              <button class="products-item__about">about</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+
+  </footer>
+  <div class="border"></div>
+
   <a href="../cart/index.html">TO CART</a>
-  <img src="../../assets/img/society-reason.jpg" alt="society reason">
-  <img src="../../assets/icons/rsschool_dark.svg" alt="rss img">
+
+  <script src="ts/index.js"></script>
 </body>
 
 </html>
