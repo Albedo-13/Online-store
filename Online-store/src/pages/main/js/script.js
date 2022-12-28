@@ -1,5 +1,5 @@
 // import '../css/styles.css';
-// import './modules/module';
+import './modules/module';
 
 function consoleOutput(text) {
   console.log(text);
