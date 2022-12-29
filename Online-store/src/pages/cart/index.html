@@ -1,21 +1,113 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Online store cart</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
   <link rel="stylesheet" href="./css/styles.css">
 </head>
 
 <body>
-  <h1 class="h2">cart page</h1>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium ipsum unde vitae mollitia minus quaerat tenetur
-    laborum quos consequuntur deleniti! Repudiandae eveniet numquam pariatur, similique et minima fugiat blanditiis
-    aspernatur?</p>
+  <header class="header">
+    <div class="container">
+      <div class="header-wrapper">
+        <a href="../../pages/main/index.html" class="header__logo">
+          <img src="../../assets/img/society-reason.jpg" alt="logo"></a>
+        <div class="header__total">
+          Cart total:
+          <span>$ 0</span>
+        </div>
+        <a href="../cart/index.html" class="header__cart">
+          <img src="../../assets/icons/cart.svg" alt="cart">
+          <span>0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      <section class="summary">
+        <div class="summary-wrapper">
+          <button class="summary__buy">Оформить покупку</button>
+          <input type="text" class="summary__promocode" placeholder="enter promo code"/>
+          <div class="summary__total-products">Products: 0</div>
+          <div class="summary__total-price">Total: $ 0</div>
+        </div>
+      </section>
+    
+      <section class="products">
+        <div class="products-wrapper">
+          <div class="products-list">
+            <div class="products-item">
+              <div class="products-item__image">
+                <img src="../../assets/img/society-reason.jpg" alt="product image">
+              </div>
+              <div class="products-item__about">
+                <div class="products-item__name">iPhone 9</div>
+                <div class="products-item__rating">Rating: 4.69</div>
+                <div class="products-item__discount">Discount: 12.96%</div>
+              </div>
+              <div class="products-item__scale">
+                <div class="products-item__stock">Stock: 94</div>
+                <button class="products-item__add">+</button>
+                <div class="products-item__count">1</div>
+                <button class="products-item__remove">-</button>
+                <div class="products-item__price">Price: €549.00</div>
+              </div>
+            </div>
+            <div class="products-item">
+              <div class="products-item__image">
+                <img src="../../assets/img/society-reason.jpg" alt="product image">
+              </div>
+              <div class="products-item__about">
+                <div class="products-item__name">iPhone 9</div>
+                <div class="products-item__rating">Rating: 4.69</div>
+                <div class="products-item__discount">Discount: 12.96%</div>
+              </div>
+              <div class="products-item__scale">
+                <div class="products-item__stock">Stock: 94</div>
+                <button class="products-item__add">+</button>
+                <div class="products-item__count">1</div>
+                <button class="products-item__remove">-</button>
+                <div class="products-item__price">Price: €549.00</div>
+              </div>
+            </div>
+            <div class="products-item">
+              <div class="products-item__image">
+                <img src="../../assets/img/society-reason.jpg" alt="product image">
+              </div>
+              <div class="products-item__about">
+                <div class="products-item__name">iPhone 9</div>
+                <div class="products-item__rating">Rating: 4.69</div>
+                <div class="products-item__discount">Discount: 12.96%</div>
+              </div>
+              <div class="products-item__scale">
+                <div class="products-item__stock">Stock: 94</div>
+                <button class="products-item__add">+</button>
+                <div class="products-item__count">1</div>
+                <button class="products-item__remove">-</button>
+                <div class="products-item__price">Price: €549.00</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  
+  <footer class="footer">
+
+  </footer>
+  <div class="border"></div>
+
   <a href="../main/index.html">TO MAIN</a>
+  <a href="../about/index.html">TO ABOUT</a>
+  <script src="js/script.js"></script>
 </body>
 
 </html>
+

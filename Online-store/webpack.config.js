@@ -12,15 +12,16 @@ const CopyPlugin = require("copy-webpack-plugin");
 
 const baseConfig = {
   entry: {
-    main: path.resolve(__dirname, './src/pages/main/ts/index'),
-    cart: path.resolve(__dirname, './src/pages/cart/ts/index'),
+    main: path.resolve(__dirname, './src/pages/main/js/script'),
+    cart: path.resolve(__dirname, './src/pages/cart/js/script'),
+    about: path.resolve(__dirname, './src/pages/about/js/script'),
   },
   mode: 'development',
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        use: ['css-loader'],
       },
       {
         test: /\.ts$/i,
@@ -32,29 +33,41 @@ const baseConfig = {
     extensions: ['.ts', '.js'],
   },
   output: {
-    filename: 'pages/[name]/js/index.js',
+    filename: 'pages/[name]/js/script.js',
     path: path.resolve(__dirname, `./dist/`),
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './src/pages/main/index.html'),
       filename: './pages/main/index.html',
+      inject: false,
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './src/pages/cart/index.html'),
       filename: './pages/cart/index.html',
+      inject: false,
+    }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, './src/pages/about/index.html'),
+      filename: './pages/about/index.html',
+      inject: false,
     }),
     new CleanWebpackPlugin(),
     new EslingPlugin({
       extensions: 'ts',
     }),
-    new MiniCssExtractPlugin({
-      filename: './pages/[name]/css/styles.css',
-    }),
+    // new MiniCssExtractPlugin({
+    //   filename: './pages/[name]/css/styles.css',
+    // }),
     // Очень тяжелый плагин, альтернативы?
     // Переписать CopyPlugin на MiniCssExtractPlugin
     new CopyPlugin({
-      patterns: [{ from: './src/assets/', to: './assets/' }],
+      patterns: [
+        { from: './src/assets/', to: './assets/' },
+        { from: './src/pages/main/css/styles.css', to: './pages/main/css/' },
+        { from: './src/pages/cart/css/styles.css', to: './pages/cart/css/' },
+        { from: './src/pages/about/css/styles.css', to: './pages/about/css/' },
+      ],
     }),
   ],
 };

@@ -1,0 +1,13 @@
+.summary {
+  background-color: rgb(183, 214, 255);
+
+  &-wrapper {
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  &__promocode {
+    width: 150px;
+  }
+}

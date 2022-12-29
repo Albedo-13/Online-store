@@ -1,9 +1,4 @@
-.h1 {
-  color: blue;
-  font-size: 40px;
-}
 
-img {
-  width: 150px;
-  height: 150px;
-}
+@import "blocks/_header";
+@import "blocks/_products";
+@import "blocks/_filters";
