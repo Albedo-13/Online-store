@@ -12,10 +12,11 @@
   }
 
   &-sort {
-    min-height: 300px;
+    min-height: 500px;
 
     &__header {
       text-align: center;
+      margin-bottom: 10px;
     }
   }
 }

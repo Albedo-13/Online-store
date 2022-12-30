@@ -1,5 +1,5 @@
-// import '../css/styles.css';
 //import './modules/module';
+
 let productList = document.getElementById('products-list');
 
 function generateEl(iterator) {
@@ -13,12 +13,18 @@ function generateEl(iterator) {
 			<ul class="info-list">
 				<li class="info-list__item"><span>Category: </span> ${iterator.category}</li>
 				<li class="info-list__item"><span>Brand</span>: ${iterator.brand}</li>
-				<li class="info-list__item"><span>Price</span>: ${iterator.price}</li>
-				<li class="info-list__item"><span>Discount</span>: ${iterator.discountPercentage}%</li>
-				<li class="info-list__item"><span>Rating</span>: ${iterator.rating}</li>
-				<li class="info-list__item"><span>Stock</span>: ${iterator.stock}</li>
+				<li class="info-list__item"><span>Price</span>: ${iterator.price}＄</li>
+				<li class="info-list__item"><span>Discount</span>: ${iterator.discountPercentage} %</li>
+				<li class="info-list__item"><span>Rating</span>: ${iterator.rating}⭐</li>
+				<li class="info-list__item"><span>Stock</span>: ${iterator.stock}🛍</li>
 			</ul>
 		</div>
+    <div class="item-buttons">
+      <button class="item-buttons__add">Add to cart</button>
+      <form action="../../pages/about/index.html">
+        <button class="item-buttons__details">Details</button>
+      </form>
+    </div>
 	</div>`;
   productList.appendChild(div);
 }
