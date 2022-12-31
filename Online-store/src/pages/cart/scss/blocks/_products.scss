@@ -1,11 +1,15 @@
 .main {
   position: relative;
   min-height: 250px;
-  padding-top: 25px;
+  border: 2px solid #ffffff;
   
   .products {
     height: 100%;
-    background-color: rgb(183, 255, 186);
+    // background-color: rgb(183, 255, 186);
+
+    &-wrapper {
+      padding-bottom: 15px;
+    }
 
     &-list {
       display: flex;
@@ -22,7 +26,7 @@
       height: 150px;
       border: 1px solid black;
       margin-top: 15px;
-      background-color: rgb(234, 255, 156);
+      background-color: $color-ghost;
 
       &__image {
         width: 100px;
@@ -52,6 +56,32 @@
 
       &__count {
         display: inline;
+      }
+
+      &__name {
+        border-bottom: 1px solid #000000;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+      }
+
+      &__add,
+      &__remove {
+        cursor: pointer;
+      }
+
+      &__delete {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: rgb(255, 34, 34);
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+        transition: 0.25s all;
+
+        &:hover {
+          background-color: rgb(255, 5, 5);
+          transition: 0.25s all;
+        }
       }
     }
   }

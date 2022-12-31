@@ -24,9 +24,9 @@
     width: 80%;
     background: rgba(43, 43, 43, 0.795);
     border-radius: 0 0.4rem 0.4rem 0;
-    border-bottom: 1px solid rgb(255, 255, 255);
-    border-right: 1px solid rgb(255, 255, 255);
-    border-top: 1px solid rgb(255, 255, 255);
+    border-bottom: 1px solid #ffffff;
+    border-right: 1px solid #ffffff;
+    border-top: 1px solid #ffffff;
     padding: 1%;
     height: 50%;
   }
@@ -35,16 +35,16 @@
 .item {
 
   &-title {
-    background: rgb(43, 43, 43);
+    background: $color-gray;
     padding: 1%;
     font-size: 90%;
     line-height: 120%;
     text-align: center;
-    border-bottom: 1px solid rgb(255, 255, 255);
+    border-bottom: 1px solid #ffffff;
     border-top-right-radius: 0.5rem;
     border-top-left-radius: 0.5rem;
     white-space: nowrap;
-    color: rgb(255, 255, 255);
+    color: #ffffff;
   }
 
   &-buttons {
@@ -58,11 +58,31 @@
     &__add {
       width: 150px;
       height: 30px;
+      border-radius: 5px;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      transition: 0.25s all;
+      cursor: pointer;
+  
+      &:hover {
+        background-color: $color-blue;
+        color: #ffffff;
+        transition: 0.25s all;
+      }
     }
     
     &__details {
-      height: 30px;
       margin-left: 10px;
+      height: 30px;
+      border-radius: 5px;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      transition: 0.25s all;
+      cursor: pointer;
+  
+      &:hover {
+        background-color: $color-blue;
+        color: #ffffff;
+        transition: 0.25s all;
+      }
     }
   }
 }
@@ -74,7 +94,8 @@
 
   &__item {
     font-size: 16px;
-    color: rgb(104, 218, 238);
+    color: $color-blue;
+    text-transform: capitalize;
 
     span {
       color: #ffffff;
@@ -85,12 +106,10 @@
 .main {
   position: relative;
   min-height: 250px;
-  padding-top: 25px;
 
   .products {
     height: 100%;
     padding-left: 300px;
-    // background-color: rgb(183, 255, 186);
     
     &__droplist,
     &__search {
@@ -109,9 +128,8 @@
       justify-content: space-between;
       align-items: center;
       min-height: 40px;
-      // flex-wrap: wrap;
       padding: 5px 15px;
-      background-color: rgb(255, 205, 112);
+      background-color: $color-light-gray;
     }
 
     &-list {

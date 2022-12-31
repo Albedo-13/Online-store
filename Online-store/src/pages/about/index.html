@@ -12,61 +12,73 @@
 
 <body>
   <header class="header">
-    <div class="container">
-      <div class="header-wrapper">
-        <a href="../../pages/main/index.html" class="header__logo">
-          <img src="../../assets/img/society-reason.jpg" alt="logo"></a>
-        <div class="header__total">
-          Cart total:
-          <span>$ 0</span>
-        </div>
-        <a href="../cart/index.html" class="header__cart">
-          <img src="../../assets/icons/cart.svg" alt="cart">
-          <span>0</span>
-        </a>
+    <a href="../main/index.html">TO MAIN</a>
+    <a href="../cart/index.html">TO CART</a>
+    <div class="header-wrapper">
+      <a href="../../pages/main/index.html" class="header__logo">
+        <img src="../../assets/img/society-reason.jpg" alt="logo"></a>
+      <div class="header__total">
+        Cart total:
+        <span>$ 0</span>
       </div>
+      <a href="../cart/index.html" class="header__cart">
+        <img src="../../assets/icons/cart.svg" alt="cart">
+        <span>0</span>
+      </a>
     </div>
   </header>
 
   <main class="main">
     <div class="container">
-      <section class="products">
-        <button class="summary__buy">← Назад</button>
-        <div class="products-wrapper">
-          <div class="products-list">
-            <div class="products-item">
-              <div class="products-item__images">
-                <img src="../../assets/img/society-reason.jpg" alt="product image">
-                <img src="../../assets/img/society-reason.jpg" alt="product image">
-                <img src="../../assets/img/society-reason.jpg" alt="product image">
-              </div>
-              <img class="products-item__image" src="../../assets/img/society-reason.jpg" alt="product image">
-              <div class="products-item__about">
-                <div class="products-item__name">iPhone 9</div>
-                <div class="products-item__descr">Good apple phone (no)</div>
-                <div class="products-item__rating">Rating: 4.69</div>
-                <div class="products-item__discount">Discount: 12.96%</div>
-                <div class="products-item__stock">Stock: 94</div>
-                <div class="products-item__count">Count: 1</div>
-                <div class="products-item__price">Price: €549.00</div>
-              </div>
-              <div class="products-item__options">
-                <button class="summary__add">Добавить в корзину</button>
-              </div>
+      <div class="products-wrapper">
+        <div class="products-list">
+          <div class="products-item">
+            <!-- <div class="products-item__images">
+              <img src="../../assets/img/society-reason.jpg" alt="product image">
+              <img src="../../assets/img/society-reason.jpg" alt="product image">
+              <img src="../../assets/img/society-reason.jpg" alt="product image">
+            </div> -->
+            <img class="products-item__image" src="../../assets/img/society-reason.jpg" alt="product image">
+            <div class="products-item__about">
+              <form action="../../pages/main/index.html">
+                <button class="products__back-to-main">← Назад</button>
+              </form>
+              <div class="products-item__name">iPhone 9</div>
+              <div class="products-item__rating">Rating: 4.69 ⭐</div>
+              <div class="products-item__discount">Discount: 12.96 %</div>
+              <div class="products-item__stock">Stock: 94 🛍</div>
+              <div class="products-item__count">Count: 1</div>
+              <div class="products-item__price">Price: 549.00 $</div>
+              <div class="products-item__descr">Good apple phone (no)</div>
+            </div>
+            <div class="products-item__options">
+              <button class="products__add">Add to cart</button>
             </div>
           </div>
         </div>
+      </div>
       </section>
-    </div>
   </main>
 
   <footer class="footer">
-
+    <div class="footer-wrapper">
+      <div>
+        Authored by
+        <a class="footer-link" href="https://github.com/Albedo-13" target="_blank">
+          <span>@Albedo-13</span>
+        </a>
+        &
+        <a class="footer-link" href="https://github.com/Remorselex" target="_blank">
+          <span>@Remorselex</span>
+        </a>
+      </div>
+      <div>Copyright © 2023</div>
+      <a class="footer-course" href="https://rs.school/js/" target="_blank">
+        <img src="../../assets/icons/rsschool.svg" alt="course logo">
+      </a>
+    </div>
   </footer>
-  <div class="border"></div>
 
-  <a href="../main/index.html">TO MAIN</a>
-  <a href="../cart/index.html">TO CART</a>
   <script src="js/script.js"></script>
 </body>
 

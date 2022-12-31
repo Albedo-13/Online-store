@@ -1,5 +1,7 @@
 .summary {
-  background-color: rgb(183, 214, 255);
+  background-color: $color-light-gray;
+  padding: 25px 0;
+
 
   &-wrapper {
     text-align: center;
@@ -8,6 +10,26 @@
   }
 
   &__promocode {
-    width: 150px;
+    width: 125px;
+    height: 39px;
+    padding-left: 10px;
+  }
+
+  &__buy {
+    height: 45px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    transition: 0.25s all;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $color-blue;
+      color: #ffffff;
+      transition: 0.25s all;
+    }
+  }
+
+  &__total-products {
+    margin-top: 15px;
   }
 }

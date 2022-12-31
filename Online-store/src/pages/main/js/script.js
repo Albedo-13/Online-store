@@ -2,7 +2,7 @@
 
 let productList = document.getElementById('products-list');
 
-function generateEl(iterator) {
+function generateCart(iterator) {
   let div = document.createElement('div');
   div.className = 'product';
   div.innerHTML = `
@@ -32,9 +32,9 @@ function generateEl(iterator) {
 async function getAllProducts() {
   let responce = await fetch('http://localhost:3000/products');
   let responceContent = await responce.json();
-  let responceContentSliced = responceContent.slice(0, 40);
+  let responceContentSliced = responceContent.slice(0, 20);
   for (let key in responceContentSliced) {
-    await generateEl(responceContentSliced[key]);
+    await generateCart(responceContentSliced[key]);
   }
 }
 

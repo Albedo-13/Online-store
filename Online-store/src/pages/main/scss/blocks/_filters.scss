@@ -1,18 +1,33 @@
 .filters {
   position: absolute;
   width: 300px;
-  background-color: rgb(183, 214, 255);
+  background-color: $color-ghost;
 
   &-buttons {
     min-height: 40px;
-    background-color: rgb(255, 177, 32);
+    background-color: $color-light-gray;
     display: flex;
     justify-content: space-between;
     padding: 5px 15px;
+
+    &__copy,
+    &__reset {
+      border-radius: 5px;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      transition: 0.25s all;
+      cursor: pointer;
+  
+      &:hover {
+        background-color: $color-blue;
+        color: #ffffff;
+        transition: 0.25s all;
+      }
+    }
   }
 
   &-sort {
-    min-height: 500px;
+    min-height: 200px;
+    padding: 0 10px 15px 10px;
 
     &__header {
       text-align: center;
@@ -22,7 +37,7 @@
 }
 
 .filter-list {
-  height: 100px;
+  height: 140px;
   overflow: auto;
   border: 1px solid black;
 
@@ -30,5 +45,9 @@
     display: flex;
     justify-content: space-between;
     padding: 5px 15px;
+
+    label {
+      text-transform: capitalize;
+    }
   }
 }

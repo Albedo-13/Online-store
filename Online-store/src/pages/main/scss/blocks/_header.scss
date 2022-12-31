@@ -3,8 +3,9 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 50px;
-    background-color: rgb(255, 174, 174);
+    height: 70px;
+    background-color: $color-blue;
+    border-bottom: 2px solid #ffffff;
   }
 
   &__logo {
@@ -26,7 +27,7 @@
       position: absolute;
       right: 40px;
       top: 50%;
-      transform:translateY(-50%);
+      transform: translateY(-50%);
     }
   }
 }
