@@ -1,5 +1,16 @@
 //import './modules/module';
 
+// Entrance
+(() => {
+  if (!localStorage.getItem('RS-online-cart')) {
+    localStorage.setItem('RS-online-cart', JSON.stringify([]));
+  }
+
+  getAllProducts().then((array) => {
+    db = JSON.parse(JSON.stringify(array));
+  });
+})();
+
 let db; // Use this array of objects to work with products database
 let productList = document.getElementById('products-list');
 
@@ -39,20 +50,6 @@ async function getAllProducts() {
   }
   return responceContentSliced;
 }
-
-// Entrance
-(() => {
-  if (!localStorage.getItem('RS-online-cart')) {
-    localStorage.setItem('RS-online-cart', JSON.stringify([]));
-  }
-
-  getAllProducts().then((array) => {
-    // console.log(JSON.parse(JSON.stringify(array)));
-    db = JSON.parse(JSON.stringify(array));
-    // console.log(db);
-    // return db;
-  });
-})();
 
 // TODO: в корзине выводить добавленные продукты.
 // TODO: в корзине изменять кол-во товаров + фиксировать в local storage.
