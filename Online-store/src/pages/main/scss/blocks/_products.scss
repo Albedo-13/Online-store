@@ -56,7 +56,7 @@
     }
 
     &__add {
-      width: 150px;
+      width: 190px;
       height: 30px;
       border-radius: 5px;
       border: 1px solid rgba(0, 0, 0, 0.5);
@@ -138,4 +138,9 @@
       justify-content: space-around;
     }
   }
+}
+
+.button-add__active {
+  background-color: $color-blue;
+  color: #ffffff;
 }

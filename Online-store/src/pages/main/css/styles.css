@@ -102,7 +102,7 @@ body {
   display: inline;
 }
 .item-buttons__add {
-  width: 150px;
+  width: 190px;
   height: 30px;
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.5);
@@ -185,6 +185,11 @@ body {
       flex-wrap: wrap;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+}
+
+.button-add__active {
+  background-color: rgb(110, 233, 255);
+  color: #ffffff;
 }
 
 .filters {
