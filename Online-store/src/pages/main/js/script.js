@@ -71,7 +71,6 @@ function removeSelectorClass(selector, newClass, textContent) {
 // TODO: пересчитывать на всех страницах сумму и кол-во товаров в хедере.
 
 // TODO: передавать ID'шник по кнопке details и генерировать описание товара
-// TODO: при обновлении страницы сохранять статус добавленного товара (стиль active кнопок)
 
 // Cart (add to cart button)
 productList.addEventListener('click', (e) => {

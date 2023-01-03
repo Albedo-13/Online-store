@@ -12,7 +12,6 @@ let productList = document.querySelector('.products-list');
     db = JSON.parse(JSON.stringify(productsArray));
     JSON.parse(localStorage.getItem('RS-online-cart')).forEach((x) => {
       if (db.find((y) => y.id === x.id)) {
-        // console.log(``);
         generateCartCard(db.find((y) => y.id === x.id));
       }
     });
@@ -49,7 +48,6 @@ function generateCartCard(iterator) {
   productList.appendChild(div);
 }
 
-// TODO: в корзине выводить добавленные продукты.
 // TODO: в корзине изменять кол-во товаров + фиксировать в local storage.
 // TODO: в корзине реализовать удаление товаров.
 // TODO?: При клике по товару в корзине перекидывать на about товара.
