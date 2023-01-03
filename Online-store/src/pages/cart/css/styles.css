@@ -135,6 +135,8 @@ body {
   border-bottom: 1px solid #000000;
   padding-bottom: 5px;
   margin-bottom: 5px;
+  font-size: 24px;
+  font-weight: 600;
 }
 .main .products-item__add, .main .products-item__remove {
   cursor: pointer;

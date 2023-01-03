@@ -1,4 +1,7 @@
-//import './modules/module';
+'use strict';
+
+let db; // Use this array of objects to work with products database
+let productList = document.getElementById('products-list');
 
 // Entrance
 (() => {
@@ -18,10 +21,7 @@
   });
 })();
 
-let db; // Use this array of objects to work with products database
-let productList = document.getElementById('products-list');
-
-function generateCart(iterator) {
+function generateMainCard(iterator) {
   let div = document.createElement('div');
   div.className = 'product';
   div.innerHTML = `
@@ -33,7 +33,7 @@ function generateCart(iterator) {
 				<li class="info-list__item"><span>Category: </span> ${iterator.category}</li>
 				<li class="info-list__item"><span>Brand</span>: ${iterator.brand}</li>
 				<li class="info-list__item"><span>Price</span>: ${iterator.price}＄</li>
-				<li class="info-list__item"><span>Discount</span>: ${iterator.discountPercentage} %</li>
+				<li class="info-list__item"><span>Discount</span>: ${iterator.discountPercentage}%</li>
 				<li class="info-list__item"><span>Rating</span>: ${iterator.rating}⭐</li>
 				<li class="info-list__item"><span>Stock</span>: ${iterator.stock}🛍</li>
 			</ul>
@@ -53,7 +53,7 @@ async function getAllProducts() {
   let responceContent = await responce.json();
   let responceContentSliced = responceContent.slice(0, 20);
   for (let key in responceContentSliced) {
-    await generateCart(responceContentSliced[key]);
+    await generateMainCard(responceContentSliced[key]);
   }
   return responceContentSliced;
 }
@@ -67,10 +67,7 @@ function removeSelectorClass(selector, newClass, textContent) {
   selector.classList.remove(newClass);
   selector.textContent = textContent;
 }
-
-// TODO: в корзине выводить добавленные продукты.
-// TODO: в корзине изменять кол-во товаров + фиксировать в local storage.
-// TODO: в корзине реализовать удаление товаров.
+// TODO: изменить генерируемую верстку DOM дерева (переработать лишние вложенности)
 // TODO: пересчитывать на всех страницах сумму и кол-во товаров в хедере.
 
 // TODO: передавать ID'шник по кнопке details и генерировать описание товара
@@ -96,10 +93,5 @@ productList.addEventListener('click', (e) => {
     cartArray.push(objectToAdd);
     localStorage.setItem('RS-online-cart', JSON.stringify(cartArray));
     addSelectorClass(e.target, 'button-add__active', 'Remove from cart');
-
-    // TODO: не обращаться к серверу на каждое добавление товара
-    // TODO: добавлять в корзину, менять стили и текст кнопки.
-    // TODO: Кнопка меняется на удаление, после нажатия на удаление -
-    // удалять из локального хранилища по id'шнику, удалять стиль к дефолтному и менять текст
   }
 });
