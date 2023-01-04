@@ -14,16 +14,18 @@ let productList = document.getElementById('products-list');
     JSON.parse(localStorage.getItem('RS-online-cart')).forEach((x) => {
       if (db.find((y) => y.id === x.id)) {
         const productsAddedItem = db.find((y) => y.id === x.id);
-        const productsAddedItemButton = document.querySelector(`#product-num-${productsAddedItem.id}`);
+        const productsAddedItemButton = document.querySelector(`#product-add-${productsAddedItem.id}`);
         addSelectorClass(productsAddedItemButton, 'button-add__active', 'Remove from cart');
       }
     });
+    updateCartSummary('.header__cart span', '', '.header__total', 'Cart total:＄');
   });
 })();
 
 function generateMainCard(iterator) {
   let div = document.createElement('div');
   div.className = 'product';
+  div.id = `product-item-${iterator.id}`;
   div.innerHTML = `
 		<div id="element1" class="element"
 		style="background: url(${iterator.thumbnail}) no-repeat left; background-size: auto;">
@@ -39,7 +41,7 @@ function generateMainCard(iterator) {
 			</ul>
 		</div>
     <div class="item-buttons">
-      <button class="item-buttons__add" id=product-num-${iterator.id}>Add to cart</button>
+      <button class="item-buttons__add" id=product-add-${iterator.id}>Add to cart</button>
       <form action="../../pages/about/index.html">
         <button class="item-buttons__details">Details</button>
       </form>
@@ -56,6 +58,15 @@ async function getAllProducts() {
     await generateMainCard(responceContentSliced[key]);
   }
   return responceContentSliced;
+}
+
+function updateCartSummary(totalProductsSelector, productsLabel, totalPriceSelector, priceLabel) {
+  const totalProducts = document.querySelector(totalProductsSelector);
+  const totalPrice = document.querySelector(totalPriceSelector);
+  const cartArray = JSON.parse(localStorage.getItem('RS-online-cart'));
+
+  totalProducts.textContent = productsLabel + cartArray.reduce((accum, product) => accum + product.count, 0);
+  totalPrice.textContent = priceLabel + cartArray.reduce((accum, product) => accum + product.count * product.price, 0);
 }
 
 function addSelectorClass(selector, newClass, textContent) {
