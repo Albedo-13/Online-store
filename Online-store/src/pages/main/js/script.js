@@ -60,6 +60,7 @@ function removeSelectorClass(selector, newClass, textContent) {
   selector.classList.remove(newClass);
   selector.textContent = textContent;
 }
+
 // TODO: изменить генерируемую верстку DOM дерева (переработать лишние вложенности)
 
 // Cart (add to cart button)
@@ -85,6 +86,7 @@ productList.addEventListener('click', (e) => {
     cartArray.push(objectToAdd);
     addSelectorClass(e.target, 'button-add__active', 'Remove from cart');
   }
+
   localStorage.setItem('RS-online-cart', JSON.stringify(cartArray));
   updateCartSummary('.header__cart span', '', '.header__total', 'Cart total:＄');
 });

@@ -1,28 +1,44 @@
 'use strict';
 
-let productId; // ?
-let productList = document.getElementById('products-list');
+let currentProduct; // Use this object to work with product from database
+let productWrapper = document.getElementById('product-wrapper');
 
 // Entrance
 (() => {
   if (!localStorage.getItem('RS-online-cart')) {
     localStorage.setItem('RS-online-cart', JSON.stringify([]));
   }
-  getProductById().then(() => {
+  getProductById().then((product) => {
+    JSON.parse(localStorage.getItem('RS-online-cart')).forEach((x) => {
+      if (x.id === product.id) {
+        const productAddButton = document.querySelector(`#product-add-${product.id}`);
+        addSelectorClass(productAddButton, 'button-add__active', 'Remove from cart');
+      }
+    });
     updateCartSummary('.header__cart span', '', '.header__total', 'Cart total:＄');
   });
 })();
 
 async function getProductById() {
   const queryId = getIdFromQueryString();
-  productId = queryId; // ?
 
   let responce = await fetch('http://localhost:3000/products');
   let responceContent = await responce.json();
   let responceContentProduct = await responceContent.filter((x) => x.id === queryId)[0];
-  console.log(responceContentProduct);
+
+  currentProduct = responceContentProduct;
   await generateAboutCard(responceContentProduct);
   return responceContentProduct;
+}
+
+function addSelectorClass(selector, newClass, textContent) {
+  selector.classList.add(newClass);
+  selector.textContent = textContent;
+}
+
+function removeSelectorClass(selector, newClass, textContent) {
+  selector.classList.remove(newClass);
+  selector.textContent = textContent;
 }
 
 function getIdFromQueryString() {
@@ -41,33 +57,52 @@ function updateCartSummary(totalProductsSelector, productsLabel, totalPriceSelec
   totalPrice.textContent = priceLabel + cartArray.reduce((accum, product) => accum + product.count * product.price, 0);
 }
 
-// TODO: добавлять/удалять текущий товар в корзину по кнопке, таглить стили (код в main)
-// пересчитывать корзину
 // TODO: добавить хлебные крошки (Store -> category -> brand -> title)
+// TODO: переписать эти всратые стили, написанные не по БЭМу
+
+productWrapper.addEventListener('click', (e) => {
+  let cartArray = JSON.parse(localStorage.getItem('RS-online-cart'));
+
+  if (e.target.classList.contains('button-add__active')) {
+    cartArray = cartArray.filter((x) => x.id !== currentProduct.id);
+    removeSelectorClass(e.target, 'button-add__active', 'Add to cart');
+  } else if (e.target.classList.contains('product__add')) {
+    const objectToAdd = {
+      id: currentProduct.id,
+      price: currentProduct.price,
+      count: 1,
+    };
+    cartArray.push(objectToAdd);
+    addSelectorClass(e.target, 'button-add__active', 'Remove from cart');
+  }
+
+  localStorage.setItem('RS-online-cart', JSON.stringify(cartArray));
+  updateCartSummary('.header__cart span', '', '.header__total', 'Cart total:＄');
+});
 
 function generateAboutCard(item) {
   let div = document.createElement('div');
-  div.className = 'products-item';
+  div.className = 'product-item';
   div.innerHTML = `
-  <!-- <div class="products-item__images">
+  <!-- <div class="product-item__images">
     <img src="../../assets/img/society-reason.jpg" alt="product image">
     <img src="../../assets/img/society-reason.jpg" alt="product image">
     <img src="../../assets/img/society-reason.jpg" alt="product image">
   </div> -->
-  <img class="products-item__image" src=${item.thumbnail} alt="product image">
-  <div class="products-item__about">
+  <img class="product-item__image" src=${item.thumbnail} alt="product image">
+  <div class="product-item__about">
     <form action="../../pages/main/index.html">
-      <button class="products__back-to-main">← Back</button>
+      <button class="product__back-to-main">← Back</button>
     </form>
-    <div class="products-item__name">${item.title}</div>
-    <div class="products-item__rating">Rating: ${item.rating}⭐</div>
-    <div class="products-item__discount">Discount: ${item.discountPercentage}%</div>
-    <div class="products-item__stock">Stock: ${item.stock}🛍</div>
-    <div class="products-item__price">Price: ${item.price}＄</div>
-    <div class="products-item__descr">${item.description}</div>
+    <div class="product-item__name">${item.title}</div>
+    <div class="product-item__rating">Rating: ${item.rating}⭐</div>
+    <div class="product-item__discount">Discount: ${item.discountPercentage}%</div>
+    <div class="product-item__stock">Stock: ${item.stock}🛍</div>
+    <div class="product-item__price">Price: ${item.price}＄</div>
+    <div class="product-item__descr">${item.description}</div>
   </div>
-  <div class="products-item__options">
-    <button class="products__add">Add to cart</button>
+  <div class="product-item__options">
+    <button class="product__add" id="product-add-${item.id}">Add to cart</button>
   </div>`;
-  productList.appendChild(div);
+  productWrapper.appendChild(div);
 }
