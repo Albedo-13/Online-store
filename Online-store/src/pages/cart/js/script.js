@@ -108,5 +108,6 @@ productList.addEventListener('click', (e) => {
   }
 
   localStorage.setItem('RS-online-cart', JSON.stringify(cartArray));
+  updateCartSummary('.header__cart span', '', '.header__total', 'Cart total:＄');
   updateCartSummary('.summary__total-products', 'Total products: ', '.summary__total-price', 'Total price: ＄');
 });
