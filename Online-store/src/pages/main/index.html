@@ -8,6 +8,7 @@
   <title>Online store</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
   <link rel="stylesheet" href="./css/styles.css">
+  
 </head>
 
 <body>
@@ -137,16 +138,18 @@
     <section class="products">
       <div class="products-wrapper">
         <div class="products-sort">
-          <select class="products__droplist" name="" id="">
-            <option value="">Sort by:</option>
-            <option value="">Sort by price (ASC)</option>
-            <option value="">Sort by price (DESC)</option>
+          <select class="products__droplist" name="" id="products__droplist">
+            <option value="" disabled>Sort by:</option>
+            <option id="products__droplist-asc" class="droplist__opption" value="">Sort by price (ASC)</option>
+            <option id="products__droplist-desc" class="droplist__opption" value="">Sort by price (DESC)</option>
           </select>
           <div class="products__total-find">
             Results:
             <span>0</span>
           </div>
-          <input type="text" class="products__search" placeholder="🔍 Search product">
+          <div>
+          <input type="text" id="products__search" class="products__search"placeholder="🔍 Search product">
+        </div>
         </div>
         <div class="products-list" id="products-list">
           <!-- Products list here -->
@@ -173,8 +176,9 @@
       </a>
     </div>
   </footer>
-
-  <script src="js/script.js"></script>
+  <script src="js/enter.js"></script>
+  <!-- <script src="js/script.js" type="module"></script>
+  <script src="js/search.js" type="module"></script> -->
 </body>
 
 </html>
