@@ -3,11 +3,19 @@
 let db; // Use this array of objects to work with products database
 let productList = document.querySelector('.products-list');
 
+// TODO: (1) если товаров в корзине нет, то все блоки страницы скрываются и вместо них выводится соответствующее сообщение
+// TODO: (1) Проверять модальное окно покупки на пустую корзину
+// TODO: (3) Добавить пагинацию
+
 // Entrance
 (() => {
   if (!localStorage.getItem('RS-online-cart')) {
     localStorage.setItem('RS-online-cart', JSON.stringify([]));
   }
+  if (JSON.parse(localStorage.getItem('RS-online-cart')).length === 0) {
+    generateEmptyCartMsg();
+  }
+
   getAllProducts().then((productsArray) => {
     db = JSON.parse(JSON.stringify(productsArray));
     JSON.parse(localStorage.getItem('RS-online-cart')).forEach((x) => {
@@ -49,17 +57,14 @@ function removeFromCartById(id) {
   domElementToRemove.remove();
 }
 
-// TODO?: При клике по товару в корзине перекидывать на about товара.
-
-// Cart (change & delete local storage count)
+// Changing & deleting added cart products
 productList.addEventListener('click', (e) => {
-  // TODO: вынести дублирование кода за условие
   const targetId = +e.target.id.split('-')[2];
   let cartArray = JSON.parse(localStorage.getItem('RS-online-cart'));
 
   if (e.target.classList.contains('products-item__add')) {
     cartArray.forEach((product) => {
-      if (product.id === targetId) {
+      if (product.id === targetId && product.count < db.find((x) => x.id === targetId).stock) {
         ++product.count;
         document.querySelector(`#product-counter-${targetId}`).textContent = product.count;
       }
@@ -83,10 +88,20 @@ productList.addEventListener('click', (e) => {
     removeFromCartById(targetId);
   }
 
+  if (!cartArray.length) {
+    generateEmptyCartMsg();
+  }
   localStorage.setItem('RS-online-cart', JSON.stringify(cartArray));
   updateCartSummary('.header__cart span', '', '.header__total', 'Cart total:＄');
   updateCartSummary('.summary__total-products', 'Total products: ', '.summary__total-price', 'Total price: ＄');
 });
+
+// DOM generators
+function generateEmptyCartMsg() {
+  productList.innerHTML = `
+  <div class="cart-empty">YOUR 🛒 IS EMPTY :)</div>
+  `;
+}
 
 function generateCartCard(iterator) {
   let div = document.createElement('div');

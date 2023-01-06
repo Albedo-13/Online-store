@@ -3,6 +3,10 @@
 let currentProduct; // Use this object to work with product from database
 let productWrapper = document.getElementById('product-wrapper');
 
+// TODO: (2) Добавить кнопку быстрой покупки (на модульное окно)
+// TODO: (3) Добавить другие изображения товара, переключаться между ними
+// TODO: (3) Переписать увеличение изображения при hover эффекте
+
 // Entrance
 (() => {
   if (!localStorage.getItem('RS-online-cart')) {
@@ -57,9 +61,6 @@ function updateCartSummary(totalProductsSelector, productsLabel, totalPriceSelec
   totalPrice.textContent = priceLabel + cartArray.reduce((accum, product) => accum + product.count * product.price, 0);
 }
 
-// TODO: Увеличивать изображение при hover эффекте
-// TODO: переписать эти всратые стили, написанные не по БЭМу
-
 productWrapper.addEventListener('click', (e) => {
   let cartArray = JSON.parse(localStorage.getItem('RS-online-cart'));
 
@@ -80,6 +81,7 @@ productWrapper.addEventListener('click', (e) => {
   updateCartSummary('.header__cart span', '', '.header__total', 'Cart total:＄');
 });
 
+// DOM generator
 function generateAboutCard(item) {
   let div = document.createElement('div');
   div.className = 'product-item';
@@ -89,7 +91,9 @@ function generateAboutCard(item) {
     <img src="../../assets/img/society-reason.jpg" alt="product image">
     <img src="../../assets/img/society-reason.jpg" alt="product image">
   </div> -->
-  <img class="product-item__image" src=${item.thumbnail} alt="product image">
+  <div class="product-item__image">
+    <img src=${item.thumbnail} alt="product image">
+  </div>
   <div class="product-item__about">
     <form action="../../pages/main/index.html">
       <button class="product__back-to-main">← Back</button>

@@ -3,6 +3,10 @@
 let db; // Use this array of objects to work with products database
 let productList = document.getElementById('products-list');
 
+// TODO: (1) Сделать модальное окно покупки товара(ов) с валидацией (https://github.com/rolling-scopes-school/tasks/blob/master/tasks/online-store-team/modules/purchase-modal.md)
+// TODO: (1) Написать 2 dual-slider'а (https://medium.com/@predragdavidovic10/native-dual-range-slider-html-css-javascript-91e778134816)
+// TODO: (3) разбить код на модули
+
 // Entrance
 (() => {
   if (!localStorage.getItem('RS-online-cart')) {
@@ -28,7 +32,7 @@ function generateDetailsQueryString(productId) {
   });
   const path = window.location.pathname.replace('main', 'about');
   const url = window.location.origin + path + '?' + query.toString();
-  // console.log(url);
+  console.log(url);
   return url;
 }
 
@@ -61,11 +65,8 @@ function removeSelectorClass(selector, newClass, textContent) {
   selector.textContent = textContent;
 }
 
-// TODO: изменить генерируемую верстку DOM дерева (переработать лишние вложенности)
-
-// Cart (add to cart button)
+// Add to cart button
 productList.addEventListener('click', (e) => {
-  // TODO: вынести дублирование кода за условие
   const targetId = +e.target.id.split('-')[2];
   let cartArray = JSON.parse(localStorage.getItem('RS-online-cart'));
   if (e.target.classList.contains('item-buttons__details')) {
@@ -91,6 +92,7 @@ productList.addEventListener('click', (e) => {
   updateCartSummary('.header__cart span', '', '.header__total', 'Cart total:＄');
 });
 
+// DOM generator
 function generateMainCard(iterator) {
   let div = document.createElement('div');
   div.className = 'product';

@@ -5,7 +5,6 @@
   
   .product {
     height: 100%;
-    // background-color: rgb(183, 255, 186);
     position: relative;
 
     &-wrapper {
@@ -82,7 +81,6 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      // align-items: center;
       padding-top: 25px;
       position: relative;
       width: 85%;
@@ -94,6 +92,19 @@
       &__image {
         width: 250px;
         height: 250px;
+        transition: 0.35s all;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+
+        &:hover {
+          position: relative;
+          width: 350px;
+          height: 350px;
+          transition: 0.35s all;
+        }
       }
 
       &__name {

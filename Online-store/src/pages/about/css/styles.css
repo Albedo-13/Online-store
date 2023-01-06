@@ -149,6 +149,19 @@ ul {
 .main .product-item__image {
   width: 250px;
   height: 250px;
+  -webkit-transition: 0.35s all;
+  transition: 0.35s all;
+}
+.main .product-item__image img {
+  width: 100%;
+  height: 100%;
+}
+.main .product-item__image:hover {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  -webkit-transition: 0.35s all;
+  transition: 0.35s all;
 }
 .main .product-item__name {
   border-bottom: 1px solid #000000;
