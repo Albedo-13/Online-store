@@ -41,6 +41,10 @@ function updateCartSummary(totalProductsSelector, productsLabel, totalPriceSelec
   totalPrice.textContent = priceLabel + cartArray.reduce((accum, product) => accum + product.count * product.price, 0);
 }
 
+// TODO: добавлять/удалять текущий товар в корзину по кнопке, таглить стили (код в main)
+// пересчитывать корзину
+// TODO: добавить хлебные крошки (Store -> category -> brand -> title)
+
 function generateAboutCard(item) {
   let div = document.createElement('div');
   div.className = 'products-item';
@@ -53,7 +57,7 @@ function generateAboutCard(item) {
   <img class="products-item__image" src=${item.thumbnail} alt="product image">
   <div class="products-item__about">
     <form action="../../pages/main/index.html">
-      <button class="products__back-to-main">← Назад</button>
+      <button class="products__back-to-main">← Back</button>
     </form>
     <div class="products-item__name">${item.title}</div>
     <div class="products-item__rating">Rating: ${item.rating}⭐</div>
@@ -67,6 +71,3 @@ function generateAboutCard(item) {
   </div>`;
   productList.appendChild(div);
 }
-
-// TODO: добавлять/удалять текущий товар в корзину по кнопке, таглить стили (код в main)
-// TODO: добавить хлебные крошки (Store -> category -> brand -> title)
