@@ -57,7 +57,7 @@ function updateCartSummary(totalProductsSelector, productsLabel, totalPriceSelec
   totalPrice.textContent = priceLabel + cartArray.reduce((accum, product) => accum + product.count * product.price, 0);
 }
 
-// TODO: добавить хлебные крошки (Store -> category -> brand -> title)
+// TODO: Увеличивать изображение при hover эффекте
 // TODO: переписать эти всратые стили, написанные не по БЭМу
 
 productWrapper.addEventListener('click', (e) => {
@@ -94,11 +94,22 @@ function generateAboutCard(item) {
     <form action="../../pages/main/index.html">
       <button class="product__back-to-main">← Back</button>
     </form>
+    <ul class="product-breadcrumbs">
+      <li><a class="product-breadcrumbs__store" href="../../pages/main/index.html">Store</a></li>
+      >>
+      <li>${item.category}</li>
+      >>
+      <li>${item.brand}</li>
+      >>
+      <li>${item.title}</li>
+    </ul>
     <div class="product-item__name">${item.title}</div>
     <div class="product-item__rating">Rating: ${item.rating}⭐</div>
     <div class="product-item__discount">Discount: ${item.discountPercentage}%</div>
     <div class="product-item__stock">Stock: ${item.stock}🛍</div>
     <div class="product-item__price">Price: ${item.price}＄</div>
+    <div class="product-item__price">Category: ${item.category}</div>
+    <div class="product-item__price">Brand: ${item.brand}</div>
     <div class="product-item__descr">${item.description}</div>
   </div>
   <div class="product-item__options">
