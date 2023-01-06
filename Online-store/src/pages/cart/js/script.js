@@ -3,7 +3,6 @@
 let db; // Use this array of objects to work with products database
 let productList = document.querySelector('.products-list');
 
-// TODO: (1) если товаров в корзине нет, то все блоки страницы скрываются и вместо них выводится соответствующее сообщение
 // TODO: (1) Проверять модальное окно покупки на пустую корзину
 // TODO: (3) Добавить пагинацию
 
