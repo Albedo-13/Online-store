@@ -19,6 +19,7 @@ let productList = document.getElementById('products-list');
       }
     });
     updateCartSummary('.header__cart span', '', '.header__total', 'Cart total:＄');
+    generateDetailsQueryString(3);
   });
 })();
 
@@ -42,12 +43,20 @@ function generateMainCard(iterator) {
 		</div>
     <div class="item-buttons">
       <button class="item-buttons__add" id=product-add-${iterator.id}>Add to cart</button>
-      <form action="../../pages/about/index.html">
-        <button class="item-buttons__details">Details</button>
-      </form>
+      <button class="item-buttons__details" id=product-details-${iterator.id}>Details</button>
     </div>
 	</div>`;
   productList.appendChild(div);
+}
+
+function generateDetailsQueryString(productId) {
+  const query = new URLSearchParams({
+    id: productId,
+  });
+  const path = window.location.pathname.replace('main', 'about');
+  const url = window.location.origin + path + '?' + query.toString();
+  // console.log(url);
+  return url;
 }
 
 async function getAllProducts() {
@@ -86,8 +95,10 @@ function removeSelectorClass(selector, newClass, textContent) {
 // Cart (add to cart button)
 productList.addEventListener('click', (e) => {
   // TODO: вынести дублирование кода за условие
+  const targetId = +e.target.id.split('-')[2];
+  const cartArray = JSON.parse(localStorage.getItem('RS-online-cart'));
+
   if (e.target.classList.contains('button-add__active')) {
-    const cartArray = JSON.parse(localStorage.getItem('RS-online-cart'));
     const cartArrayWithoutRemovedProduct = cartArray.filter((x) => x.id !== +e.target.id.split('-')[2]);
     localStorage.setItem('RS-online-cart', JSON.stringify(cartArrayWithoutRemovedProduct));
     removeSelectorClass(e.target, 'button-add__active', 'Add to cart');
@@ -99,9 +110,10 @@ productList.addEventListener('click', (e) => {
       price: pickedProduct.price,
       count: 1,
     };
-    const cartArray = JSON.parse(localStorage.getItem('RS-online-cart'));
     cartArray.push(objectToAdd);
     localStorage.setItem('RS-online-cart', JSON.stringify(cartArray));
     addSelectorClass(e.target, 'button-add__active', 'Remove from cart');
+  } else if (e.target.classList.contains('item-buttons__details')) {
+    window.location.href = generateDetailsQueryString(targetId);
   }
 });

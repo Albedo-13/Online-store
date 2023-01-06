@@ -57,6 +57,7 @@ body {
       flex-wrap: wrap;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  margin-bottom: 40px;
 }
 .main .products__back-to-main {
   position: absolute;
