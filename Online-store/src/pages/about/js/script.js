@@ -8,7 +8,9 @@ let productList = document.getElementById('products-list');
   if (!localStorage.getItem('RS-online-cart')) {
     localStorage.setItem('RS-online-cart', JSON.stringify([]));
   }
-  getProductById();
+  getProductById().then(() => {
+    updateCartSummary('.header__cart span', '', '.header__total', 'Cart total:＄');
+  });
 })();
 
 async function getProductById() {
@@ -28,6 +30,15 @@ function getIdFromQueryString() {
   const urlSearchParams = new URLSearchParams(new URL(url).searchParams);
   const res = Object.fromEntries(Array.from(urlSearchParams.entries()));
   return +res.id;
+}
+
+function updateCartSummary(totalProductsSelector, productsLabel, totalPriceSelector, priceLabel) {
+  const totalProducts = document.querySelector(totalProductsSelector);
+  const totalPrice = document.querySelector(totalPriceSelector);
+  const cartArray = JSON.parse(localStorage.getItem('RS-online-cart'));
+
+  totalProducts.textContent = productsLabel + cartArray.reduce((accum, product) => accum + product.count, 0);
+  totalPrice.textContent = priceLabel + cartArray.reduce((accum, product) => accum + product.count * product.price, 0);
 }
 
 function generateAboutCard(item) {
