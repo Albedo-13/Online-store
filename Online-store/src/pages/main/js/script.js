@@ -88,9 +88,6 @@ function removeSelectorClass(selector, newClass, textContent) {
   selector.textContent = textContent;
 }
 // TODO: изменить генерируемую верстку DOM дерева (переработать лишние вложенности)
-// TODO: пересчитывать на всех страницах сумму и кол-во товаров в хедере.
-
-// TODO: передавать ID'шник по кнопке details и генерировать описание товара
 
 // Cart (add to cart button)
 productList.addEventListener('click', (e) => {

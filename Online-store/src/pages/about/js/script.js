@@ -67,3 +67,6 @@ function generateAboutCard(item) {
   </div>`;
   productList.appendChild(div);
 }
+
+// TODO: добавлять/удалять текущий товар в корзину по кнопке, таглить стили (код в main)
+// TODO: добавить хлебные крошки (Store -> category -> brand -> title)
