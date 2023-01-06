@@ -1,4 +1,6 @@
 'use strict';
+import getCollection from './search.js';
+import sortByPrice from './sort.js';
 
 let db; // Use this array of objects to work with products database
 let productList = document.getElementById('products-list');
@@ -19,6 +21,9 @@ let productList = document.getElementById('products-list');
       }
     });
     updateCartSummary('.header__cart span', '', '.header__total', 'Cart total:＄');
+    getCollection();
+    let dbCopy = db;
+    sortByPrice(dbCopy);
   });
 })();
 
@@ -28,13 +33,13 @@ function generateMainCard(iterator) {
   div.id = `product-item-${iterator.id}`;
   div.innerHTML = `
 		<div id="element1" class="element"
-		style="background: url(${iterator.thumbnail}) no-repeat left; background-size: auto;">
+		style="background: url(${iterator.thumbnail}) no-repeat left; background-size: auto; dispaly: block;">
 		<div class="item-title">${iterator.title}</div>
 		<div class="element-info">
 			<ul class="info-list">
 				<li class="info-list__item"><span>Category: </span> ${iterator.category}</li>
 				<li class="info-list__item"><span>Brand</span>: ${iterator.brand}</li>
-				<li class="info-list__item"><span>Price</span>: ${iterator.price}＄</li>
+				<li class="info-list__item"><span>Price</span>: <tt class = "info-list__item-price">${iterator.price}</tt>＄</li>
 				<li class="info-list__item"><span>Discount</span>: ${iterator.discountPercentage}%</li>
 				<li class="info-list__item"><span>Rating</span>: ${iterator.rating}⭐</li>
 				<li class="info-list__item"><span>Stock</span>: ${iterator.stock}🛍</li>
@@ -53,7 +58,7 @@ function generateMainCard(iterator) {
 async function getAllProducts() {
   let responce = await fetch('http://localhost:3000/products');
   let responceContent = await responce.json();
-  let responceContentSliced = responceContent.slice(0, 20);
+  let responceContentSliced = responceContent.slice(0, 30);
   for (let key in responceContentSliced) {
     await generateMainCard(responceContentSliced[key]);
   }
