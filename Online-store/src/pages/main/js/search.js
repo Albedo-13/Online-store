@@ -1,7 +1,7 @@
 let searchInput = document.getElementById('products__search');
 let product = document.getElementsByClassName('item-title');
 
-function reduceSpacesToAtoms(stringWithSpaces) {
+export function reduceSpacesToAtoms(stringWithSpaces) {
   return stringWithSpaces.toLowerCase().replace(/\s/g, '').trim();
 }
 

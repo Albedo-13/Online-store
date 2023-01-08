@@ -22,14 +22,14 @@ let productList = document.getElementById('products-list');
     });
     updateCartSummary('.header__cart span', '', '.header__total', 'Cart total:＄');
     getCollection();
-    let dbCopy = db;
-    sortByPrice(dbCopy);
+    sortByPrice();
   });
 })();
 
 function generateMainCard(iterator) {
   let div = document.createElement('div');
-  div.className = 'product';
+  div.dataset.sort = `${iterator.price}`;
+  div.className = `product`;
   div.id = `product-item-${iterator.id}`;
   div.innerHTML = `
 		<div id="element1" class="element"
@@ -39,7 +39,7 @@ function generateMainCard(iterator) {
 			<ul class="info-list">
 				<li class="info-list__item"><span>Category: </span> ${iterator.category}</li>
 				<li class="info-list__item"><span>Brand</span>: ${iterator.brand}</li>
-				<li class="info-list__item"><span>Price</span>: <tt class = "info-list__item-price">${iterator.price}</tt>＄</li>
+				<li class="info-list__item"><span>Price</span>: ${iterator.price}＄</li>
 				<li class="info-list__item"><span>Discount</span>: ${iterator.discountPercentage}%</li>
 				<li class="info-list__item"><span>Rating</span>: ${iterator.rating}⭐</li>
 				<li class="info-list__item"><span>Stock</span>: ${iterator.stock}🛍</li>
