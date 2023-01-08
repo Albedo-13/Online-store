@@ -3,8 +3,6 @@
 let db; // Use this array of objects to work with products database
 let productList = document.querySelector('.products-list');
 
-// TODO: (1) Сделать модальное окно покупки товара(ов) с валидацией (https://github.com/rolling-scopes-school/tasks/blob/master/tasks/online-store-team/modules/purchase-modal.md)
-// TODO: (1) Проверять модальное окно покупки на пустую корзину
 // TODO: (3) Добавить пагинацию
 
 // Entrance
@@ -136,7 +134,9 @@ function generateCartCard(iterator) {
   const cardSubmitBtn = modal.querySelector('.card-submit');
 
   openModal.addEventListener('click', () => {
-    modal.classList.remove('hide');
+    if (JSON.parse(localStorage.getItem('RS-online-cart')).length > 0) {
+      modal.classList.remove('hide');
+    }
   });
 
   modalCloseBtn.addEventListener('click', () => {
