@@ -3,7 +3,6 @@
 let db; // Use this array of objects to work with products database
 let productList = document.getElementById('products-list');
 
-// TODO: (1) Сделать модальное окно покупки товара(ов) с валидацией (https://github.com/rolling-scopes-school/tasks/blob/master/tasks/online-store-team/modules/purchase-modal.md)
 // TODO: (1) Написать 2 dual-slider'а (https://medium.com/@predragdavidovic10/native-dual-range-slider-html-css-javascript-91e778134816)
 // TODO: (3) разбить код на модули
 

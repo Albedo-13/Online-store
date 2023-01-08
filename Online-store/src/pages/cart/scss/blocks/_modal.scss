@@ -1,0 +1,130 @@
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: #000000, $alpha: 0.56);
+
+  &-form {
+    background-color: rgb(29, 29, 29);
+    text-align: center;
+    border-radius: 15px;
+    min-width: 50%;
+    min-height: 75%;
+    padding: 10px;
+    padding-bottom: 30px;
+    position: relative;
+  }
+
+  &-subheader {
+    color: $color-blue;
+  }
+
+  &__close {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+    padding: 10px;
+  }
+}
+
+.form {
+
+  &-item {
+
+    &__input {
+      margin-bottom: 15px;
+      height: 30px;
+      width: 400px;
+      text-align: center;
+      border: 1px solid $color-light-gray;
+      border-radius: 5px;
+    }
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.card {
+
+  &-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__image {
+      height: 30px;
+      width: auto;
+    }
+
+    &__number {
+      height: 25px;
+      width: 250px;
+      margin-left: 10px;
+      text-align: center;
+      border: 1px solid $color-light-gray;
+      border-radius: 5px;
+    }
+  }
+
+  &-data {
+    background-color: rgb(50, 71, 255);
+    border: 1px solid #ffffff;
+    width: 400px;
+    height: 200px;
+    margin: 0 auto;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .valid-data,
+    .cvv-data {
+      width: 45%;
+      display: inline-block;
+
+      input {
+        width: 50%;
+        height: 25px;
+        margin-left: 10px;
+        text-align: center;
+        border: 1px solid $color-light-gray;
+        border-radius: 5px;
+      }
+    }
+
+    .other-data {
+      display: inline;
+      margin-top: 15px;
+    }
+  }
+
+  &-submit {
+    height: 35px;
+    width: 100px;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    transition: 0.25s all;
+
+    &:hover {
+      background-color: $color-blue;
+      transition: 0.25s all;
+      cursor: pointer;
+    }
+  }
+}
+
+.hide {
+  display: none;
+}
