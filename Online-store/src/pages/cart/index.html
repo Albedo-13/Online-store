@@ -16,7 +16,7 @@
     <a href="../about/index.html">TO ABOUT</a>
     <div class="header-wrapper">
       <a href="../../pages/main/index.html" class="header__logo">
-        <img src="../../assets/img/society-reason.jpg" alt="logo"></a>
+        <img src="https://www.iconpacks.net/icons/2/free-store-icon-2017-thumb.png" alt="logo"></a>
       <div class="header__total">
         Cart total:＄0
       </div>
@@ -30,8 +30,8 @@
   <main class="main">
     <section class="summary">
       <div class="summary-wrapper">
-        <button class="summary__buy">Оформить покупку</button>
-        <input type="text" class="summary__promocode" placeholder="Promo code" />
+        <button class="summary__buy">Buy now</button>
+        <!-- <input type="text" class="summary__promocode" placeholder="Promo code" /> -->
         <div class="summary__total-products">Total products: 0</div>
         <div class="summary__total-price">Total price: ＄0</div>
       </div>
@@ -65,6 +65,50 @@
       </a>
     </div>
   </footer>
+
+  <div class="modal hide">
+    <form action="../../pages/main/index.html" class="modal-form">
+      <div class="modal__close">❌</div>
+      <div class="person-details">
+        <h2 class="modal-subheader">Personal details </h2>
+        <div class="person-name form-item">
+          <input required class="form-item__input input-name" pattern="^[a-zA-Z]{3,}(?:\s[a-zA-Z]{3,})+$" type="text" placeholder="Name">
+        </div>
+        <div class="phone-number form-item">
+          <input required class="form-item__input input-phone" pattern="^\+[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{3,6}$" type="text" placeholder="Phone number">
+        </div>
+        <div class="address form-item">
+          <input required class="form-item__input input-address" pattern="^[a-zA-Z0-9]{5,}(?:\s[a-zA-Z0-9]{5,}){2,}$" type="text" placeholder="Delivery address">
+        </div>
+        <div class="email form-item">
+          <input required class="form-item__input input-email" type="email" placeholder="E-mail">
+        </div>
+      </div>
+
+      <div class="card-details">
+        <h2 class="modal-subheader">Credit card details</h2>
+
+        <div class="card-data">
+          <div class="card-number">
+            <img class="card-number__image" alt="card type"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkdMZcTxIgmkIGjBHvY_maSuIOIWH79cHpn2LbnYT47YrYxrmCnumq4EEEyQ0sy_ZSSUY&usqp=CAU">
+              <input required class="card-number__number" minlength="19" maxlength="19" type="text" placeholder="Card number">
+          </div>
+          <div class="other-data">
+            <div class="valid-data"> VALID:
+              <input required class="card-number__valid" minlength="5" maxlength="5" type="text" placeholder="xx/xx">
+            </div>
+            <div class="cvv-data"> CVV:
+              <input required class="card-number__cvv" min="111" max="999" type="number" placeholder="Code">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <button class="card-submit" type="submit">CONFIRM</button>
+    </form>
+  </div>
 
   <script src="js/script.js"></script>
 </body>
