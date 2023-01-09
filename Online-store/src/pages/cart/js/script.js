@@ -34,6 +34,7 @@ async function getAllProducts() {
   return responceContentSliced;
 }
 
+// Updates on actions
 function updateProductsCount() {
   const cartArray = JSON.parse(localStorage.getItem('RS-online-cart'));
   cartArray.forEach((product) => {
@@ -41,6 +42,7 @@ function updateProductsCount() {
   });
 }
 
+// same module in each page
 function updateCartSummary(totalProductsSelector, productsLabel, totalPriceSelector, priceLabel) {
   const totalProducts = document.querySelector(totalProductsSelector);
   const totalPrice = document.querySelector(totalPriceSelector);
@@ -127,6 +129,7 @@ function generateCartCard(iterator) {
   // Modal
   const openModal = document.querySelector('.summary__buy');
   const modal = document.querySelector('.modal');
+  const form = modal.querySelector('.modal-form');
   const modalCloseBtn = modal.querySelector('.modal__close');
   const cardNumberInput = modal.querySelector('.card-number__number');
   const cardValidInput = modal.querySelector('.card-number__valid');
@@ -219,7 +222,7 @@ function generateCartCard(iterator) {
     }
   });
 
-  cardSubmitBtn.addEventListener('click', (e) => {
+  form.addEventListener('submit', () => {
     localStorage.setItem('RS-online-cart', []);
   });
 }

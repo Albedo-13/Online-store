@@ -35,16 +35,6 @@ async function getProductById() {
   return responceContentProduct;
 }
 
-function addSelectorClass(selector, newClass, textContent) {
-  selector.classList.add(newClass);
-  selector.textContent = textContent;
-}
-
-function removeSelectorClass(selector, newClass, textContent) {
-  selector.classList.remove(newClass);
-  selector.textContent = textContent;
-}
-
 function getIdFromQueryString() {
   const url = window.location.href;
   const urlSearchParams = new URLSearchParams(new URL(url).searchParams);
@@ -52,6 +42,7 @@ function getIdFromQueryString() {
   return +res.id;
 }
 
+// same module in each page
 function updateCartSummary(totalProductsSelector, productsLabel, totalPriceSelector, priceLabel) {
   const totalProducts = document.querySelector(totalProductsSelector);
   const totalPrice = document.querySelector(totalPriceSelector);
@@ -120,4 +111,14 @@ function generateAboutCard(item) {
     <button class="product__add" id="product-add-${item.id}">Add to cart</button>
   </div>`;
   productWrapper.appendChild(div);
+}
+
+function addSelectorClass(selector, newClass, textContent) {
+  selector.classList.add(newClass);
+  selector.textContent = textContent;
+}
+
+function removeSelectorClass(selector, newClass, textContent) {
+  selector.classList.remove(newClass);
+  selector.textContent = textContent;
 }
