@@ -32,8 +32,8 @@ let productList = document.querySelector('.products-list');
 })();
 
 async function getAllProducts() {
-  let responce = await fetch('http://localhost:3000/products');
+  let responce = await fetch('https://dummyjson.com/products');
   let responceContent = await responce.json();
-  let responceContentSliced = responceContent.slice(0, 20);
+  let responceContentSliced = responceContent.products;
   return responceContentSliced;
 }

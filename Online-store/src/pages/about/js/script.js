@@ -27,9 +27,9 @@ let productWrapper = document.getElementById('product-wrapper');
 async function getProductById() {
   const queryId = getIdFromQueryString();
 
-  let responce = await fetch('http://localhost:3000/products');
+  let responce = await fetch('https://dummyjson.com/products');
   let responceContent = await responce.json();
-  let responceContentProduct = await responceContent.filter((x) => x.id === queryId)[0];
+  let responceContentProduct = await responceContent.products.filter((x) => x.id === queryId)[0];
 
   currentProduct = responceContentProduct;
   await generateAboutCard(responceContentProduct);
