@@ -157,6 +157,11 @@ body {
   transition: 0.25s all;
 }
 
+.cart-empty {
+  font-size: 45px;
+  margin-top: 50px;
+}
+
 .footer {
   background-color: rgb(69, 69, 69);
   position: sticky;
@@ -333,4 +338,4 @@ input::-webkit-inner-spin-button {
 
 .hide {
   display: none;
-}/*# sourceMappingURL=styles.css.map */
+}

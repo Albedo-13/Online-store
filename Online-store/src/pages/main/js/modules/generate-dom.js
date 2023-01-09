@@ -7,6 +7,7 @@ function generateMainCard(iterator) {
   div.id = `product-item-${iterator.id}`;
   div.dataset.sort = `${iterator.price}`;
   div.dataset.brand = `${iterator.brand}`;
+  div.dataset.category = `${iterator.category}`;
   div.innerHTML = `
   <div id="element1" class="element"
   style="background: url(${iterator.thumbnail}) no-repeat left; background-size: auto; dispaly: block;">

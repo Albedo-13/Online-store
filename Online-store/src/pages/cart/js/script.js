@@ -1,7 +1,7 @@
 'use strict';
 import { updateProductsCount, updateCartSummary } from './modules/update.js';
 import addModal from './modules/modal.js';
-import { generateCartCard } from './modules/generate-dom.js';
+import { generateCartCard, generateEmptyCartMsg } from './modules/generate-dom.js';
 import addCardActions from './modules/cards.js';
 
 let db; // Use this array of objects to work with products database
@@ -12,6 +12,10 @@ let productList = document.querySelector('.products-list');
   if (!localStorage.getItem('RS-online-cart')) {
     localStorage.setItem('RS-online-cart', JSON.stringify([]));
   }
+  if (!JSON.parse(localStorage.getItem('RS-online-cart')).length) {
+    generateEmptyCartMsg();
+  }
+
   getAllProducts().then((productsArray) => {
     db = JSON.parse(JSON.stringify(productsArray));
     JSON.parse(localStorage.getItem('RS-online-cart')).forEach((x) => {

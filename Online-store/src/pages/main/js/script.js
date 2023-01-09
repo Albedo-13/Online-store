@@ -5,6 +5,11 @@ import dualSlider from './modules/dual-slider.js';
 import { generateMainCard, addSelectorClass } from './modules/generate-dom.js';
 import updateCartSummary from './modules/update.js';
 import addCardActions from './modules/cards.js';
+import getBrand from './modules/generate-filters.js';
+import { generateFilters } from './modules/generate-filters.js';
+import { getCategory } from './modules/generate-filters.js';
+import filerProducts from './modules/filters.js';
+import { dropFilters } from './modules/filters.js';
 
 let db; // Use this array of objects to work with products database
 let productList = document.getElementById('products-list');
@@ -24,18 +29,23 @@ let productList = document.getElementById('products-list');
         addSelectorClass(productsAddedItemButton, 'button-add__active', 'Remove from cart');
       }
     });
+    const product = Array.from(document.querySelectorAll('.product'));
     updateCartSummary('.header__cart span', '', '.header__total', 'Cart total:＄');
     getCollection();
     addCardActions(productList, db);
     dualSlider();
     sortByPrice();
+    generateFilters(getBrand(product));
+    generateFilters(getCategory(product));
+    filerProducts();
+    dropFilters();
   });
 })();
 
 async function getAllProducts() {
-  let responce = await fetch('http://localhost:3000/products');
+  let responce = await fetch('https://dummyjson.com/products');
   let responceContent = await responce.json();
-  let responceContentSliced = responceContent.slice(0, 60);
+  let responceContentSliced = responceContent.products;
   for (let key in responceContentSliced) {
     await generateMainCard(responceContentSliced[key]);
   }
