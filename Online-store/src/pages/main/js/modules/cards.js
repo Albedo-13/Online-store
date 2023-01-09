@@ -1,5 +1,5 @@
 import { addSelectorClass, removeSelectorClass } from './generate-dom.js';
-import updateCartSummary from './update-info.js';
+import updateCartSummary from './update.js';
 
 function addCardActions(productList, db) {
   // Add to cart & details buttons

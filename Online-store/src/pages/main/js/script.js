@@ -1,7 +1,7 @@
 'use strict';
 import dualSlider from './modules/dual-slider.js';
 import { generateMainCard, addSelectorClass } from './modules/generate-dom.js';
-import updateCartSummary from './modules/update-info.js';
+import updateCartSummary from './modules/update.js';
 import addCardActions from './modules/cards.js';
 
 let db; // Use this array of objects to work with products database
