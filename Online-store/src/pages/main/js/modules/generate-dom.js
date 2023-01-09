@@ -23,9 +23,7 @@ function generateMainCard(iterator) {
   </div>
   <div class="item-buttons">
     <button class="item-buttons__add" id=product-add-${iterator.id}>Add to cart</button>
-    <form action="../../pages/about/index.html">
-      <button class="item-buttons__details">Details</button>
-    </form>
+    <button class="item-buttons__details" id=product-details-${iterator.id}>Details</button>
   </div>
 </div>`;
   productList.appendChild(div);
