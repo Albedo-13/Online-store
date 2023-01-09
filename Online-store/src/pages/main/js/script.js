@@ -1,6 +1,6 @@
 'use strict';
-import getCollection from './search.js';
-import sortByPrice from './sort.js';
+import getCollection from './modules/search.js';
+import sortByPrice from './modules/sort.js';
 
 let db; // Use this array of objects to work with products database
 let productList = document.getElementById('products-list');
@@ -58,7 +58,7 @@ function generateMainCard(iterator) {
 async function getAllProducts() {
   let responce = await fetch('http://localhost:3000/products');
   let responceContent = await responce.json();
-  let responceContentSliced = responceContent.slice(0, 30);
+  let responceContentSliced = responceContent.slice(0, 60);
   for (let key in responceContentSliced) {
     await generateMainCard(responceContentSliced[key]);
   }
