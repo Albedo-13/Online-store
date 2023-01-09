@@ -5,6 +5,7 @@
   
   .products {
     height: 100%;
+    // background-color: rgb(183, 255, 186);
 
     &-wrapper {
       padding-bottom: 15px;
@@ -86,9 +87,4 @@
       }
     }
   }
-}
-
-.cart-empty {
-  font-size: 45px;
-  margin-top: 50px;
 }

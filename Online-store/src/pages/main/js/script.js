@@ -1,4 +1,6 @@
 'use strict';
+import getCollection from './modules/search.js';
+import sortByPrice from './modules/sort.js';
 import dualSlider from './modules/dual-slider.js';
 import { generateMainCard, addSelectorClass } from './modules/generate-dom.js';
 import updateCartSummary from './modules/update.js';
@@ -23,15 +25,17 @@ let productList = document.getElementById('products-list');
       }
     });
     updateCartSummary('.header__cart span', '', '.header__total', 'Cart total:＄');
+    getCollection();
     addCardActions(productList, db);
     dualSlider();
+    sortByPrice();
   });
 })();
 
 async function getAllProducts() {
   let responce = await fetch('http://localhost:3000/products');
   let responceContent = await responce.json();
-  let responceContentSliced = responceContent.slice(0, 20);
+  let responceContentSliced = responceContent.slice(0, 60);
   for (let key in responceContentSliced) {
     await generateMainCard(responceContentSliced[key]);
   }

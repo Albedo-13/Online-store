@@ -8,9 +8,12 @@
   <title>Online store</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
   <link rel="stylesheet" href="./css/styles.css">
+  
 </head>
 
 <body>
+  <a href="../cart/index.html">TO CART</a>
+  <a href="../about/index.html">TO ABOUT</a>
   <header class="header">
     <div class="header-wrapper">
       <a href="../../pages/main/index.html" class="header__logo">
@@ -33,7 +36,7 @@
           <button class="filters-buttons__copy">Copy filters</button>
         </div>
         <div class="filters-sort">
-          <h3 class="filters-sort__header">Categories</h3>
+          <h3 class="filters-sort__header">Категории</h3>
           <div class="filter-list" id="filter-category">
             <div class="filter-list-item">
               <div>
@@ -48,7 +51,7 @@
               <div>
                 <label>
                   <input class="filter-list-item__checkbox" type="checkbox">
-                  smartphones
+                  laptops
                 </label>
               </div>
               <span>(0/0)</span>
@@ -57,7 +60,7 @@
               <div>
                 <label>
                   <input class="filter-list-item__checkbox" type="checkbox">
-                  smartphones
+                  fragraces
                 </label>
               </div>
               <span>(0/0)</span>
@@ -66,7 +69,7 @@
               <div>
                 <label>
                   <input class="filter-list-item__checkbox" type="checkbox">
-                  smartphones
+                  skincare
                 </label>
               </div>
               <span>(0/0)</span>
@@ -75,19 +78,19 @@
               <div>
                 <label>
                   <input class="filter-list-item__checkbox" type="checkbox">
-                  smartphones
+                  groceries
                 </label>
               </div>
               <span>(0/0)</span>
             </div>
           </div>
-          <h3 class="filters-sort__header">Brands</h3>
+          <h3 class="filters-sort__header">Бренд</h3>
           <div class="filter-list" id="filter-brand">
             <div class="filter-list-item">
               <div>
                 <label>
                   <input class="filter-list-item__checkbox" type="checkbox">
-                  smartphones
+                  apple
                 </label>
               </div>
               <span>(0/0)</span>
@@ -96,7 +99,7 @@
               <div>
                 <label>
                   <input class="filter-list-item__checkbox" type="checkbox">
-                  smartphones
+                  samsung
                 </label>
               </div>
               <span>(0/0)</span>
@@ -105,25 +108,7 @@
               <div>
                 <label>
                   <input class="filter-list-item__checkbox" type="checkbox">
-                  smartphones
-                </label>
-              </div>
-              <span>(0/0)</span>
-            </div>
-            <div class="filter-list-item">
-              <div>
-                <label>
-                  <input class="filter-list-item__checkbox" type="checkbox">
-                  smartphones
-                </label>
-              </div>
-              <span>(0/0)</span>
-            </div>
-            <div class="filter-list-item">
-              <div>
-                <label>
-                  <input class="filter-list-item__checkbox" type="checkbox">
-                  smartphones
+                  louiswill 
                 </label>
               </div>
               <span>(0/0)</span>
@@ -152,16 +137,18 @@
     <section class="products">
       <div class="products-wrapper">
         <div class="products-sort">
-          <select class="products__droplist" name="" id="">
-            <option value="">Sort by:</option>
-            <option value="">Sort by price (ASC)</option>
-            <option value="">Sort by price (DESC)</option>
+          <select class="products__droplist" name="" id="products__droplist">
+            <option value="" disabled>Sort by:</option>
+            <option id="products__droplist-asc" class="droplist__opption" value="">Sort by price (ASC)</option>
+            <option id="products__droplist-desc" class="droplist__opption" value="">Sort by price (DESC)</option>
           </select>
           <div class="products__total-find">
             Results:
             <span>0</span>
           </div>
-          <input type="text" class="products__search" placeholder="🔍 Search product">
+          <div>
+          <input type="text" id="products__search" class="products__search"placeholder="🔍 Search product">
+        </div>
         </div>
         <div class="products-list" id="products-list">
           <!-- Products list here -->

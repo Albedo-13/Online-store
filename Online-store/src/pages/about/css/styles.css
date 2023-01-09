@@ -7,11 +7,6 @@ body {
   height: 100vh;
 }
 
-ul {
-  margin: 0;
-  padding: 0;
-}
-
 .header-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
