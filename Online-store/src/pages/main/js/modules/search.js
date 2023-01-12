@@ -15,7 +15,7 @@ searchInput.oninput = function () {
 };
 
 function addDisplayStyle(element, displayStyle) {
-  return (element.parentElement.style.display = displayStyle);
+  element.parentElement.style.display = displayStyle;
 }
 
 function getCollection(searchData) {
@@ -26,6 +26,18 @@ function getCollection(searchData) {
         : addDisplayStyle(item, 'none');
     });
   }
+}
+
+export function showCounter() {
+  let allCart = document.getElementsByClassName('product');
+  let results = document.getElementById('products__total-find');
+  let counter = 0;
+  Array.from(allCart).forEach((element) => {
+    if (element.style.display === 'flex') {
+      ++counter;
+    }
+  });
+  results.innerText = `Results: ${counter}`;
 }
 
 export default getCollection;

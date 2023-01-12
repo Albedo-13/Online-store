@@ -1,4 +1,4 @@
-function getDataArray(element, data) {
+export function getDataArray(element, data) {
   return element.reduce((acc, curVal) => {
     return acc.includes(curVal.getAttribute(data).toLowerCase())
       ? acc
@@ -28,7 +28,6 @@ export function createFilter(iterator) {
       ${iterator}
     </label>
   </div>
-  <span>(0/0)</span>
 </div>`;
   if (getDataArray(product, 'data-brand').includes(iterator)) filtersList.appendChild(div);
   if (getDataArray(product, 'data-category').includes(iterator)) filerCategoryList.appendChild(div);

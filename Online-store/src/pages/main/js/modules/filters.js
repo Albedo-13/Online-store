@@ -1,3 +1,6 @@
+import { showCounter } from './search.js';
+import { getDataArray } from './generate-filters.js';
+const product = document.getElementsByClassName('product');
 let checkedFilters = [];
 
 function addDisplayStyle(element, displayStyle) {
@@ -6,21 +9,46 @@ function addDisplayStyle(element, displayStyle) {
 
 function saveCheckedFilters(event, item) {
   if (checkedFilters.includes(item.getAttribute('data-filter'))) {
-    checkedFilters.splice(checkedFilters.indexOf(item.getAttribute('data-filter')));
+    checkedFilters.splice(checkedFilters.indexOf(item.getAttribute('data-filter')), 1);
   } else {
     if (event) {
       checkedFilters.push(item.getAttribute('data-filter'));
     }
   }
-  filter();
   console.log(checkedFilters);
 }
 
-function filter() {
-  const product = document.getElementsByClassName('product');
+function filterCallSwitcher() {
+  if(a >0 && b>0 ) {
+    setMultiFilters();
+  } else {
+    setFilters();
+  }
+}
+
+function getAttributeText(item, brand) {
+  return checkedFilters.includes(item.getAttribute(brand).toLowerCase());
+}
+
+//TODO remove code repetition
+function setMultiFilters() {
   if (checkedFilters.length) {
     Array.from(product).map((item) => {
-      checkedFilters.includes(item.getAttribute('data-category').toLowerCase())
+      getAttributeText(item, 'data-brand') && getAttributeText(item, 'data-category')
+        ? addDisplayStyle(item, 'flex')
+        : addDisplayStyle(item, 'none');
+    });
+  } else {
+    Array.from(product).map((item) => {
+      addDisplayStyle(item, 'flex');
+    });
+  }
+}
+
+function setFilters() {
+  if (checkedFilters.length) {
+    Array.from(product).map((item) => {
+      getAttributeText(item, 'data-brand') || getAttributeText(item, 'data-category')
         ? addDisplayStyle(item, 'flex')
         : addDisplayStyle(item, 'none');
     });
@@ -37,10 +65,13 @@ function filerProducts() {
     item.addEventListener('change', (event) => {
       if (event) {
         saveCheckedFilters(event, item);
+        checkedFilters.length >=2 ? setMultiFilters() : setFilters();
+        showCounter();
       }
     });
   });
 }
+
 
 export function dropFilters() {
   document.getElementById('filters-buttons__reset').addEventListener('click', (event) => {

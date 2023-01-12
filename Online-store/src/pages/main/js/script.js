@@ -10,6 +10,7 @@ import { generateFilters } from './modules/generate-filters.js';
 import { getCategory } from './modules/generate-filters.js';
 import filerProducts from './modules/filters.js';
 import { dropFilters } from './modules/filters.js';
+import { showCounter } from './modules/search.js';
 
 let db; // Use this array of objects to work with products database
 let productList = document.getElementById('products-list');
