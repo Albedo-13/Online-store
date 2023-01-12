@@ -1,6 +1,8 @@
 // DOM generators
 
-let productList = document.querySelector('.products-list');
+import { DummyItem } from './types';
+
+const productList = document.querySelector('.products-list') as HTMLElement;
 
 function generateEmptyCartMsg() {
   productList.innerHTML = `
@@ -8,8 +10,8 @@ function generateEmptyCartMsg() {
   `;
 }
 
-function generateCartCard(iterator) {
-  let div = document.createElement('div');
+function generateCartCard(iterator: DummyItem) {
+  const div = document.createElement('div');
   div.className = 'products-item';
   div.id = `cart-item-${iterator.id}`;
   div.innerHTML = `
