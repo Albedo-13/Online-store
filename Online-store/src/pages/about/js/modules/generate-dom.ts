@@ -1,9 +1,9 @@
 // DOM generator
+import { DummyItem } from './types';
+const productWrapper = document.getElementById('product-wrapper') as HTMLElement;
 
-let productWrapper = document.getElementById('product-wrapper');
-
-function generateAboutCard(item) {
-  let div = document.createElement('div');
+function generateAboutCard(item: DummyItem): void {
+  const div = document.createElement('div') as HTMLElement;
   div.className = 'product-item';
   div.innerHTML = `
   <!-- <div class="product-item__images">
@@ -42,12 +42,12 @@ function generateAboutCard(item) {
   productWrapper.appendChild(div);
 }
 
-function addSelectorClass(selector, newClass, textContent) {
+function addSelectorClass(selector: Element, newClass: string, textContent: string): void {
   selector.classList.add(newClass);
   selector.textContent = textContent;
 }
 
-function removeSelectorClass(selector, newClass, textContent) {
+function removeSelectorClass(selector: Element, newClass: string, textContent: string) {
   selector.classList.remove(newClass);
   selector.textContent = textContent;
 }
