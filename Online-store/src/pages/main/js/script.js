@@ -1,16 +1,14 @@
 'use strict';
-import getCollection from './modules/search.js';
-import sortByPrice from './modules/sort.js';
-import dualSlider from './modules/dual-slider.js';
-import { generateMainCard, addSelectorClass } from './modules/generate-dom.js';
-import updateCartSummary from './modules/update.js';
-import addCardActions from './modules/cards.js';
-import getBrand from './modules/generate-filters.js';
-import { generateFilters } from './modules/generate-filters.js';
-import { getCategory } from './modules/generate-filters.js';
+import getCollection from './modules/search';
+import sortByPrice from './modules/sort';
+import { generateMainCard, addSelectorClass } from './modules/generate-dom';
+import updateCartSummary from './modules/update';
+import addCardActions from './modules/cards';
+import getBrand from './modules/generate-filters';
+import { generateFilters } from './modules/generate-filters';
+import { getCategory } from './modules/generate-filters';
 import filerProducts from './modules/filters.js';
 import { dropFilters } from './modules/filters.js';
-import { showCounter } from './modules/search.js';
 
 let db; // Use this array of objects to work with products database
 let productList = document.getElementById('products-list');
@@ -34,7 +32,6 @@ let productList = document.getElementById('products-list');
     updateCartSummary('.header__cart span', '', '.header__total', 'Cart total:＄');
     getCollection();
     addCardActions(productList, db);
-    dualSlider();
     sortByPrice();
     generateFilters(getBrand(product));
     generateFilters(getCategory(product));

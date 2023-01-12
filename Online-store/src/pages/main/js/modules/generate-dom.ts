@@ -1,8 +1,10 @@
-// DOM generator (layout)
-let productList = document.getElementById('products-list');
+import { DummyItem } from './types';
 
-function generateMainCard(iterator) {
-  let div = document.createElement('div');
+// DOM generator (layout)
+const productList = document.getElementById('products-list') as HTMLElement;
+
+function generateMainCard(iterator: DummyItem) {
+  const div = document.createElement('div');
   div.className = 'product';
   div.id = `product-item-${iterator.id}`;
   div.dataset.sort = `${iterator.price}`;
@@ -30,12 +32,12 @@ function generateMainCard(iterator) {
   productList.appendChild(div);
 }
 
-function addSelectorClass(selector, newClass, textContent) {
+function addSelectorClass(selector: HTMLElement, newClass: string, textContent: string): void {
   selector.classList.add(newClass);
   selector.textContent = textContent;
 }
 
-function removeSelectorClass(selector, newClass, textContent) {
+function removeSelectorClass(selector: HTMLElement, newClass: string, textContent: string) {
   selector.classList.remove(newClass);
   selector.textContent = textContent;
 }

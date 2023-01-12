@@ -1,5 +1,4 @@
-import { showCounter } from './search.js';
-import { getDataArray } from './generate-filters.js';
+import { showCounter } from './search';
 const product = document.getElementsByClassName('product');
 let checkedFilters = [];
 
@@ -16,14 +15,6 @@ function saveCheckedFilters(event, item) {
     }
   }
   console.log(checkedFilters);
-}
-
-function filterCallSwitcher() {
-  if(a >0 && b>0 ) {
-    setMultiFilters();
-  } else {
-    setFilters();
-  }
 }
 
 function getAttributeText(item, brand) {
@@ -65,13 +56,12 @@ function filerProducts() {
     item.addEventListener('change', (event) => {
       if (event) {
         saveCheckedFilters(event, item);
-        checkedFilters.length >=2 ? setMultiFilters() : setFilters();
+        checkedFilters.length >= 2 ? setMultiFilters() : setFilters();
         showCounter();
       }
     });
   });
 }
-
 
 export function dropFilters() {
   document.getElementById('filters-buttons__reset').addEventListener('click', (event) => {
